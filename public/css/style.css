@@ -1,0 +1,23 @@
+body{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+#form{
+
+    /*color: #007FFF;*/
+    background-color: white;
+    border-style: double;
+    border-radius: 20px;
+    border-color: blue;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#form h1{
+    text-shadow: 2px 2px 2px grey;
+}
+
+#spinner {
+    display: none;
+}
