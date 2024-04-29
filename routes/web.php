@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\formController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\recordController;
+use App\Http\Controllers\requestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,5 +47,6 @@ Route::post('/submitData', [formController::class, 'enterData']);
 //submit approval/rejection route
 Route::post('/sumitReq', [recordController::class, 'sumitReq']);
 
+Route::get('/view', [requestController::class, 'index']);
 
 

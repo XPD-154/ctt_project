@@ -28,7 +28,12 @@
             @if(session()->has('user'))
             <form class="d-flex" action="/logout" method="POST" onsubmit="switchVisible_2();">
                 @csrf
-                <button class="btn btn-outline-danger" id="accept_button_2" type="submit">Logout</button>
+
+                <div id="accept_button_2">
+                    <button class="btn btn-outline-warning m-1" type="button"><a style="color: inherit; text-decoration: none;" onclick="switchVisible_2();" href="/view">View Records</a></button>
+
+                    <button class="btn btn-outline-danger m-1" type="submit">Logout</button>
+                </div>
 
                 <button class="btn btn-primary" id="loading_button_2" style="display: none;" type="button" disabled>
                     <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>

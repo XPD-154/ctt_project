@@ -31,17 +31,19 @@
                   {{session('message')}}
                 </div>
                 @endif
-
                 <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Account</th>
                         <th scope="col">Amount</th>
+                        <th scope="col">Approval Status</th>
                         <th scope="col">Requesting Staff</th>
                         <th scope="col">Authorizing Staff</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Approved</th>
+                        <th scope="col">Previous Balance</th>
+                        <th scope="col">Current Balance</th>
+                        <th scope="col">Request Creation Date</th>
+                        <th scope="col">Request Update Date</th>
                       </tr>
                     </thead>
                     <tbody class="table-group-divider">
@@ -58,13 +60,16 @@
                           {{$item->credit_amount}}
                         </td>
 
+                        <td>
+                          {{$item->approval_status}}
+                        </td>
+
                         <td>{{$item->requesting_staff}}</td>
                         <td>{{$item->authorizing_staff}}</td>
+                        <td>{{$item->before_balance}}</td>
+                        <td>{{$item->after_balance}}</td>
                         <td>{{$item->created_on}}</td>
-
-                        <td>
-                        <a style="color: inherit; text-decoration: none;" href="/edit/{{$item->id}}"><button type="button" onclick="switchVisible_3()" class="btn btn-outline-info">Edit</button></a>
-                        </td>
+                        <td>{{$item->updated_on}}</td>
                         
                       </tr>
                       @endforeach
@@ -76,6 +81,24 @@
                 <span>{{$data->links()}}</span>
 
           </div>
+
+            <div class="mt-3 text-center">
+                
+                <div id="accept_button_4">
+                @if(session()->get('user')==env('CROSSTEE_REQ_MAIL'))
+                <a style="color: inherit; text-decoration: none;" href="/form"><button type="button" onclick="switchVisible_4();" class="btn btn-outline-dark btn-lg">Go Back</button></a>
+                @elseif(session()->get('user')==env('CROSSTEE_AUTH_MAIL'))
+                <a style="color: inherit; text-decoration: none;" href="/record"><button type="button" onclick="switchVisible_4();" class="btn btn-outline-dark btn-lg">Go Back</button></a>
+                @endif
+                </div>
+
+                <button class="btn btn-primary" id="loading_button_4" style="display: none;" type="button" disabled>
+                    <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
+                    <span role="status">Loading...</span>
+                </button>
+
+            </div>
+
         </section>
 
     </div>

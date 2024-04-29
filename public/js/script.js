@@ -17,3 +17,9 @@ function switchVisible_3(){
     document.getElementById('spinner').style.display = 'block';
 
 }
+
+function switchVisible_4(){
+    //alert('clicked');
+    document.getElementById('accept_button_4').style.display = 'none';
+    document.getElementById('loading_button_4').style.display = 'block';
+}
